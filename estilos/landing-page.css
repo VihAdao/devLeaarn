@@ -1,0 +1,147 @@
+
+/*Reseta o CSS, removendo estilos que o navegador tenha por padrão*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*CSS do body da página*/
+body {
+    background-color: #F5F3FF;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+/*Estilos para desktop */
+
+@media screen and (min-width: 1024px) {
+
+    .header{
+        background: #9dfbc1;
+        height: 90px;
+        padding: 0 60px;
+        margin-bottom: 0.5rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo{
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
+
+    .menu{
+        display: flex;
+        gap: 45px;
+    }
+
+    .menu a{
+        text-decoration: none;
+        color: #000;
+        font-size: 1.2rem;
+    }
+
+    .menu a:hover{
+        color: #2e8b57;
+    }
+
+    .titulo {
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #14532D;
+        text-align: center;
+        margin: 5% 2% 3% 2%;
+    }
+
+    .subtitulo {
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        color: #000;
+        text-align: center;
+        margin-bottom: 4%;
+        padding: 0% 30%;
+    }
+
+    .botao{
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .comece-aqui{
+        background: #16a34a;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+
+        border: none;
+        border-radius: 8px;
+
+        padding: 14px 28px;
+    }
+
+    .comece-aqui:hover{
+        background: #0d5e2a;
+    }
+
+    .recursos {
+        display: flex;
+        flex-direction: row;
+        column-gap: 3%;
+        align-items: center;
+        justify-content: center;
+        margin: 5% 2% 3% 2%;
+    }
+
+    .recursos-texto {
+        text-align: start;
+    }
+
+    .recursos-imagem {
+        width: 400px;
+        height: auto;
+    }
+
+    .footer {
+        background: #16a34a;
+        color: #fff;
+        height: 120px;
+        padding: 0 60px;
+        margin-top: 0.5rem;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .logo-footer {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #FFF;
+    }
+
+    .footer a{
+        text-decoration: none;
+        color: rgb(196, 249, 237);
+        font-size: 1rem;
+    }
+
+    .footer a:hover{
+        color: #afacbe;
+        text-decoration: underline;
+    }
+
+    .lista-devs {
+        list-style-type: none;
+    }
+
+
+}
