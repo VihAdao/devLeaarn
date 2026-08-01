@@ -1,0 +1,159 @@
+
+/*Reseta o CSS, removendo estilos que o navegador tenha por padrão*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*CSS do body da página*/
+body {
+    background-color: #F5F3FF;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+/*Estilos para desktop */
+
+@media screen and (min-width: 1024px) {
+
+    .header{
+        background: #9dfbc1;
+        height: 90px;
+        padding: 0 60px;
+        margin-bottom: 0.5rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo{
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
+
+    .menu{
+        display: flex;
+        gap: 45px;
+    }
+
+    .menu a{
+        text-decoration: none;
+        color: #000;
+        font-size: 1.2rem;
+    }
+
+    .menu a:hover{
+        color: #2e8b57;
+    }
+
+    .titulo {
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #14532D;
+        text-align: center;
+        margin: 5% 2% 3% 2%;
+    }
+
+    .container-senha{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 3% 0%;
+    }
+
+    .senha-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1%;
+        height: auto;
+        padding: 5% 4%;
+        width: fit-content;
+
+        border: solid 1px black;
+        border-radius: 20px; 
+        font-weight: bold;
+    }
+
+    input{
+        margin-top: 5%;
+        padding: 1% 2%;
+        box-sizing: border-box;
+        border: 0.5px solid;
+        border-radius: 4px;
+    }
+
+    .container-senha a {
+        text-decoration: underline;
+        color: black;
+        font-size: 0.8rem;
+    }
+
+    .container-senha a:hover {
+        color: #afacbe;
+    }
+
+    .botao{
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .botao-senha{
+        background: #16a34a;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 600;
+
+        border: none;
+        border-radius: 8px;
+
+        padding: 14px 28px;
+    }
+
+    .botao-senha:hover{
+        background: #0d5e2a;
+    }
+
+    .footer {
+        background: #16a34a;
+        color: #fff;
+        height: 120px;
+        padding: 0 60px;
+        margin-top: 0.5rem;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .logo-footer {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #FFF;
+    }
+
+    .footer a{
+        text-decoration: none;
+        color: rgb(196, 249, 237);
+        font-size: 1rem;
+    }
+
+    .footer a:hover{
+        color: #afacbe;
+        text-decoration: underline;
+    }
+
+    .lista-devs {
+        list-style-type: none;
+    }
+
+
+}

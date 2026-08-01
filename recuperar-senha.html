@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-Lab</title>
+    <link rel="stylesheet" href="./estilos/recuperar-senha.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="landing-page.html" class="logo">Task-LAB</a>
+
+        <nav class="menu">
+            <a href="login.html" class="menuPrincipalItem">Login</a>
+            <a href="cadastro.html" class="menuPrincipalItem">Cadastro</a>
+            <a href="sobre.html" class="menuPrincipalItem">Sobre nós</a>
+        </nav> 
+
+    </header>
+
+    <h1 class="titulo">Recupere sua senha</h1>
+
+    <div class="container-senha"> 
+       <div class="senha-form">
+            <form method="post" target="_self">
+                <label for="userEmail">Email</label><br>
+                <input type="email" id="userEmail" name="userEmail" placeholder="Digite seu email" required><br><br><br>
+                <label for="userNovaSenha">Nova senha</label><br>
+                <input type="password" id="userNovaSenha" name="userNovaSenha" placeholder="Digite sua senha" required><br><br><br>
+                <label for="userConfNovaSenha">Confirme a nova senha</label><br>
+                <input type="password" id="userConfNovaSenha" name="userConfNovaSenha" placeholder="Digite sua senha" required><br>
+
+                <div class="botao">
+                    <button type="submit" class="botao-senha">Alterar senha</button>
+                </div>
+                
+            </form>
+
+            <a href="login.html">Cancelar</a>
+        </div> 
+    </div>
+    
+
+    <footer class="footer">
+        <h3 class="logo-footer">Task-LAB</h3>
+
+        <div>
+            <p style="font-weight: bold;">Desenvolvido por: </p>
+            <ul class="lista-devs">
+                <li><a href="https://github.com/luishvarela">Luis Henrique Varela</a></li>
+                <li><a href="https://github.com/malickfs">Malick Figueroa Sanó</a></li>
+                <li><a href="https://github.com/FV-MariaRita">Maria Rita Vargas</a></li>
+                <li><a href="https://github.com/VihAdao">Victor Hugo Adão</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
