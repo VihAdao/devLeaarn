@@ -75,17 +75,20 @@ body {
         padding: 5% 4%;
         width: fit-content;
 
-        border: solid 1px black;
-        border-radius: 20px; 
+        background-color: #f9f8fe;
+
+        box-shadow: 2px 0 8px #8b9b97;
+        border-radius: 20px;
         font-weight: bold;
     }
 
     input{
-        margin-top: 5%;
-        padding: 1% 2%;
+       margin-top: 5%;
+        padding: 3% 2%;
         box-sizing: border-box;
         border: 0.5px solid;
         border-radius: 4px;
+        background-color: #F5F3FF;
     }
 
     .botao{
