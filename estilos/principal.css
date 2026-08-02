@@ -43,24 +43,29 @@ body {
         flex: 1;
     }
 
-    .menu-lateral{
-        width: 200px;
-        padding: 30px 20px;
+    .menu-lateral {
+    width: 200px;
+    padding: 30px 20px;
 
-        display:flex;
-        flex-direction:column;
-        gap: 30px;
-        justify-content: start;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 
-        background-color:rgb(198, 244, 234);
-        color: #000;
-        font-weight: 500;
+    background-color: #F0FDF4;
+    font-weight: 500;
     }
 
     .menu-lateral a {
+        padding: 10px;
+
         color: #000;
-        font-weight: 500;
         text-decoration: none;
+    }
+    
+    /* Destaca a página que está aberta */
+    .menu-lateral .pagina-atual {
+        background-color: #16A34A;
+        color: #FFF;
     }
 
     .conteudo {

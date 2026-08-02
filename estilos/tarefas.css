@@ -1,0 +1,353 @@
+/* Remove os estilos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #F5F3FF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000;
+}
+
+/* Header */
+.header {
+    height: 90px;
+    padding: 0 60px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #9DFBC1;
+}
+
+.logo {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Área formada pelo menu lateral e pelo conteúdo */
+.dashboard {
+    display: flex;
+    flex: 1;
+}
+
+/* Menu lateral */
+.menu-lateral {
+    width: 200px;
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    background-color: #F0FDF4;
+    font-weight: 500;
+}
+
+.menu-lateral a {
+    padding: 10px;
+
+    color: #000;
+    text-decoration: none;
+}
+
+/* Destaca a página que está aberta OBS: lemnbrar de colocar nas outras paginas tbm */
+.menu-lateral .pagina-atual {
+    background-color: #16A34A;
+    color: #FFF;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    flex: 1;
+    padding: 20px 40px 50px 40px;
+}
+
+/* estilizacao dos titulos */
+.titulo {
+    margin: 20px 0 15px 0;
+
+    color: #14532D;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.subtitulo {
+    margin-bottom: 35px;
+
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Resumo das tarefas */
+.resumo-tarefas {
+    margin-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.resumo-card {
+    min-height: 100px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: #FFF;
+    border: 1px solid #9DFBC1;
+}
+
+.numero-resumo {
+    color: #14532D;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Formulario de criacao */
+.nova-tarefa {
+    margin-bottom: 30px;
+    padding: 25px;
+
+    background-color: #F0FDF4;
+    border: 1px solid #9DFBC1;
+}
+
+.nova-tarefa h2 {
+    margin-bottom: 20px;
+    color: #14532D;
+}
+
+#form-tarefa {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo label {
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    height: 45px;
+    padding: 0 12px;
+
+    background-color: #FFF;
+    border: 1px solid #9DFBC1;
+    font-size: 1rem;
+}
+
+.botao-adicionar {
+    height: 45px;
+    padding: 0 22px;
+
+    background-color: #16A34A;
+    border: none;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Busca e filtros */
+.filtros {
+    margin-bottom: 30px;
+
+    display: flex;
+    gap: 15px;
+}
+
+.filtros input,
+.filtros select {
+    height: 42px;
+    padding: 0 12px;
+
+    background-color: #FFF;
+    border: 1px solid #9DFBC1;
+    font-size: 1rem;
+}
+
+#busca-tarefas {
+    flex: 1;
+}
+
+/* Lista de tarefas */
+.lista-tarefas h2 {
+    margin-bottom: 20px;
+    color: #14532D;
+}
+
+#container-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Card individual */
+.card-tarefa {
+    padding: 20px;
+
+    background-color: #FFF;
+    border: 1px solid #9DFBC1;
+}
+
+.cabecalho-card {
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.titulo-tarefa {
+    color: #14532D;
+    font-size: 1.2rem;
+}
+
+.badge-prioridade {
+    height: fit-content;
+    padding: 5px 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+}
+
+.prioridade-alta {
+    background-color: #F8D7DA;
+    color: #842029;
+}
+
+.prioridade-media {
+    background-color: #FFF3CD;
+    color: #664D03;
+}
+
+.prioridade-baixa {
+    background-color: #D1E7DD;
+    color: #0F5132;
+}
+
+.descricao-card {
+    min-height: 48px;
+    margin-bottom: 15px;
+
+    line-height: 1.5;
+}
+
+.informacoes-card {
+    margin-bottom: 18px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+}
+
+.status-tarefa {
+    color: #14532D;
+    font-weight: bold;
+}
+
+.status-concluido {
+    color: #16A34A;
+}
+
+.acoes-card {
+    display: flex;
+    gap: 10px;
+}
+
+.acoes-card button {
+    padding: 8px 12px;
+
+    background-color: #F0FDF4;
+    border: 1px solid #16A34A;
+    color: #14532D;
+    cursor: pointer;
+}
+
+.btn-concluir {
+    background-color: #16A34A !important;
+    color: #FFF !important;
+}
+
+.btn-deletar {
+    border-color: #A61B1B !important;
+    color: #A61B1B !important;
+}
+
+.card-concluido {
+    background-color: #F0FDF4;
+}
+
+.card-concluido .titulo-tarefa {
+    text-decoration: line-through;
+}
+
+/* Adaptacao para telas menores */
+@media screen and (max-width: 1023px) {
+
+    .header {
+        height: 70px;
+        padding: 0 25px;
+    }
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .menu-lateral {
+        width: 100%;
+        padding: 15px 20px;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .conteudo {
+        padding: 20px;
+    }
+
+    .resumo-tarefas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #form-tarefa {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros {
+        flex-direction: column;
+    }
+
+    .filtros input,
+    .filtros select {
+        width: 100%;
+    }
+}
