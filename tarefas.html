@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task-LAB | Tarefas</title>
+
+    <link rel="stylesheet" href="./estilos/tarefas.css">
+    <script src="cards.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="principal.html" class="logo">Task-LAB</a>
+    </header>
+
+    <div class="dashboard">
+
+        <div class="menu-lateral">
+            <a href="principal.html">🏠 Início</a>
+            <a href="tarefas.html" class="pagina-atual">📝 Tarefas</a>
+            <a href="calendario.html">📆 Calendário</a>
+            <a href="perfil.html">👤 Perfil</a>
+            <a href="landing-page.html">Sair</a>
+        </div>
+
+        <main class="conteudo">
+
+            <h1 class="titulo">Minhas tarefas</h1>
+
+            <h3 class="subtitulo">
+                Organize suas atividades e acompanhe o que precisa ser feito.
+            </h3>
+
+            <section class="resumo-tarefas">
+
+                <div class="resumo-card">
+                    <span id="total-tarefas" class="numero-resumo">3</span>
+                    <span>Total de tarefas</span>
+                </div>
+
+                <div class="resumo-card">
+                    <span id="tarefas-pendentes" class="numero-resumo">2</span>
+                    <span>Pendentes</span>
+                </div>
+
+                <div class="resumo-card">
+                    <span id="tarefas-concluidas" class="numero-resumo">1</span>
+                    <span>Concluídas</span>
+                </div>
+
+                <div class="resumo-card">
+                    <span id="tarefas-hoje" class="numero-resumo">1</span>
+                    <span>Para hoje</span>
+                </div>
+
+            </section>
+
+            <section class="nova-tarefa">
+
+                <h2>Adicionar nova tarefa</h2>
+
+                <form id="form-tarefa">
+
+                    <div class="campo campo-titulo">
+                        <label for="input-tarefa">Título</label>
+
+                        <input
+                            type="text"
+                            id="input-tarefa"
+                            placeholder="Digite o título da tarefa"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo campo-descricao">
+                        <label for="descricao-tarefa">Descrição</label>
+
+                        <input
+                            type="text"
+                            id="descricao-tarefa"
+                            placeholder="Digite uma descrição"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="prioridade-tarefa">Prioridade</label>
+
+                        <select id="prioridade-tarefa">
+                            <option value="baixa">Baixa</option>
+                            <option value="media" selected>Média</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="data-tarefa">Prazo</label>
+
+                        <input
+                            type="date"
+                            id="data-tarefa"
+                        >
+                    </div>
+
+                    <button type="submit" class="botao-adicionar">
+                        Adicionar tarefa
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section class="filtros">
+
+                <input
+                    type="search"
+                    id="busca-tarefas"
+                    placeholder="Buscar tarefa"
+                >
+
+                <select id="filtro-status">
+                    <option value="todas">Todos os status</option>
+                    <option value="pendente">Pendentes</option>
+                    <option value="concluida">Concluídas</option>
+                </select>
+
+                <select id="filtro-prioridade">
+                    <option value="todas">Todas as prioridades</option>
+                    <option value="baixa">Baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                </select>
+
+            </section>
+
+            <section class="lista-tarefas">
+
+                <h2>Lista de tarefas</h2>
+
+                <div id="container-cards">
+
+                    <article class="card-tarefa urgencia-alta">
+
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-tarefa">
+                                Revisar Estruturas de Dados
+                            </h3>
+
+                            <span class="badge-prioridade prioridade-alta">
+                                Alta
+                            </span>
+                        </div>
+
+                        <p class="descricao-card">
+                            Revisar listas, pilhas, filas e árvores.
+                        </p>
+
+                        <div class="informacoes-card">
+                            <span>Prazo: 20/08/2026</span>
+                            <span class="status-tarefa">Pendente</span>
+                        </div>
+
+                        <div class="acoes-card">
+                            <button class="btn-concluir">Concluir</button>
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-deletar">Excluir</button>
+                        </div>
+
+                    </article>
+
+                    <article class="card-tarefa urgencia-media">
+
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-tarefa">
+                                Desenvolver o projeto de Web
+                            </h3>
+
+                            <span class="badge-prioridade prioridade-media">
+                                Média
+                            </span>
+                        </div>
+
+                        <p class="descricao-card">
+                            Terminar as páginas de tarefas e calendário.
+                        </p>
+
+                        <div class="informacoes-card">
+                            <span>Prazo: 22/08/2026</span>
+                            <span class="status-tarefa">Pendente</span>
+                        </div>
+
+                        <div class="acoes-card">
+                            <button class="btn-concluir">Concluir</button>
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-deletar">Excluir</button>
+                        </div>
+
+                    </article>
+
+                    <article class="card-tarefa card-concluido urgencia-baixa">
+
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-tarefa">
+                                Entregar relatório de laboratório
+                            </h3>
+
+                            <span class="badge-prioridade prioridade-baixa">
+                                Baixa
+                            </span>
+                        </div>
+
+                        <p class="descricao-card">
+                            Revisar o texto e enviar o arquivo final.
+                        </p>
+
+                        <div class="informacoes-card">
+                            <span>Prazo: 15/08/2026</span>
+                            <span class="status-tarefa status-concluido">
+                                Concluída
+                            </span>
+                        </div>
+
+                        <div class="acoes-card">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-deletar">Excluir</button>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+</body>
+</html>
