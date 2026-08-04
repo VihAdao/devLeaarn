@@ -1,49 +1,47 @@
-
-/*Reseta o CSS, removendo estilos que o navegador tenha por padrão*/
-*{
+/* Remove os estilos padrão do navegador */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/*CSS do body da página*/
+/* Estilo geral da página */
 body {
-    background-color: #F5F3FF;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 100%;
-
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    background-color: #F5F3FF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000;
 }
 
-/*Estilos para desktop */
+/* Header */
+.header {
+    height: 90px;
+    padding: 0 60px;
 
-@media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: center;
 
-    .header{
-        background: #9dfbc1;
-        height: 90px;
-        padding: 0 60px;
+    background-color: #9DFBC1;
+}
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.logo {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-    .logo{
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #000;
-    }
+/* Área formada pelo menu lateral e pelo conteúdo */
+.dashboard {
+    display: flex;
+    flex: 1;
+}
 
-    .dashboard {
-        display: flex;
-        flex: 1;
-    }
-
-    .menu-lateral {
+/* Menu lateral */
+.menu-lateral {
     width: 200px;
     padding: 30px 20px;
 
@@ -53,93 +51,103 @@ body {
 
     background-color: #F0FDF4;
     font-weight: 500;
+}
+
+.menu-lateral a {
+    padding: 10px;
+
+    color: #000;
+    text-decoration: none;
+}
+
+/* Destaca a página que está aberta */
+.menu-lateral .pagina-atual {
+    background-color: #16A34A;
+    color: #FFF;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px 40px 50px 40px;
+}
+
+/* estilizacao dos titulos */
+.titulo {
+    margin: 20px 0 15px 0;
+
+    color: #14532D;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.subtitulo {
+    margin-bottom: 35px;
+
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+#container-cards {
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+/* Resumo das tarefas */
+.resumo-tarefas {
+    margin-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.resumo-card {
+    min-height: 100px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: #FFF;
+    border: 1px solid #9DFBC1;
+}
+
+.numero-resumo {
+    color: #14532D;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1023px) {
+
+    .header {
+        height: 70px;
+        padding: 0 25px;
     }
 
-    .menu-lateral a {
-        padding: 10px;
-
-        color: #000;
-        text-decoration: none;
+    .dashboard {
+        flex-direction: column;
     }
-    
-    /* Destaca a página que está aberta */
-    .menu-lateral .pagina-atual {
-        background-color: #16A34A;
-        color: #FFF;
+
+    .menu-lateral {
+        width: 100%;
+        padding: 15px 20px;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .conteudo {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-
-        padding: 20px 40px;
+        padding: 20px;
     }
-
-    .titulo {
-        font-size: 2rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #14532D;
-        text-align: center;
-        margin: 2% 2% 3% 2%;
-    }
-
-    .subtitulo {
-        font-weight: 600;
-        font-family: Arial, Helvetica, sans-serif;
-        text-decoration: none;
-        color: #000;
-        text-align: center;
-        margin-bottom: 4%;
-        padding: 0;
-    }
-
-    #container-cards {
-
-        display:grid;
-
-        grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-
-        gap:25px;
-
-        margin-top:40px;
-
-    }
-
-    .footer {
-        background: #16a34a;
-        color: #fff;
-        height: 120px;
-        padding: 0 60px;
-        margin-top: 0.5rem;
-
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .logo-footer {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #FFF;
-    }
-
-    .footer a{
-        text-decoration: none;
-        color: rgb(196, 249, 237);
-        font-size: 1rem;
-    }
-
-    .footer a:hover{
-        color: #afacbe;
-        text-decoration: underline;
-    }
-
-    .lista-devs {
-        list-style-type: none;
-    }
-
-
 }

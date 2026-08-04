@@ -6,142 +6,235 @@
     box-sizing: border-box;
 }
 
-/*CSS do body da página*/
+/*Estilo geral da página*/
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     background-color: #F5F3FF;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000;
 }
 
-/*Estilos para desktop */
+/* Header */ 
+.header{
+    background: #9dfbc1;
+    height: 90px;
+    padding: 0 60px;
+    margin-bottom: 0.5rem;
 
-@media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .header{
-        background: #9dfbc1;
-        height: 90px;
-        padding: 0 60px;
-        margin-bottom: 0.5rem;
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+.menu{
+    display: flex;
+    gap: 45px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+}
+
+.menu a:hover{
+    color: #2e8b57;
+}
+
+.titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #14532D;
+    text-align: center;
+    margin: 5% 2% 3% 2%;
+}
+
+.subtitulo {
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    margin-bottom: 4%;
+    padding: 0% 30%;
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.comece-aqui{
+    background: #16a34a;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 14px 28px;
+}
+
+.comece-aqui:hover{
+    background: #0d5e2a;
+}
+
+.recursos {
+    display: flex;
+    flex-direction: row;
+    column-gap: 3%;
+    align-items: center;
+    justify-content: center;
+    margin: 5% 2% 3% 2%;
+}
+
+.recursos-texto {
+    text-align: start;
+}
+
+.recursos-imagem {
+    width: 400px;
+    height: auto;
+}
+
+.footer {
+    background: #16a34a;
+    color: #fff;
+    height: 120px;
+    padding: 0 60px;
+    margin-top: 0.5rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-footer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.footer a{
+    text-decoration: none;
+    color: rgb(196, 249, 237);
+    font-size: 1rem;
+}
+
+.footer a:hover{
+    color: #afacbe;
+    text-decoration: underline;
+}
+
+.lista-devs {
+    list-style-type: none;
+}
+
+@media screen and (max-width: 1023px) {
+    body {
+        text-align: center;
+        min-width: 100%;
+    }
+
+    .header {
+        height: 10vh;
+        padding: 0 15px;
+        justify-content: space-evenly;
+        margin-bottom: 0.7rem;
+        gap: 5vw;
+        width: 100vw;
     }
 
     .logo{
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #000;
+        font-size: 2.5vh;
+        width: 50vw;
+        text-align: left;
+        padding: 0 5px;
     }
 
     .menu{
         display: flex;
-        gap: 45px;
+        flex-direction:row;
+        
+        width:100%;
+        justify-content: flex-end;
+        gap:5%;
+        flex-wrap:wrap;
+        padding: 0;
     }
 
     .menu a{
-        text-decoration: none;
-        color: #000;
-        font-size: 1.2rem;
-    }
-
-    .menu a:hover{
-        color: #2e8b57;
+        font-size: 2vh;
     }
 
     .titulo {
-        font-size: 2rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #14532D;
-        text-align: center;
-        margin: 5% 2% 3% 2%;
+        padding: 0 2vw;
     }
 
-    .subtitulo {
-        font-weight: 600;
-        font-family: Arial, Helvetica, sans-serif;
-        text-decoration: none;
-        color: #000;
+    .subtitulo {  
+        width:100%;
+        padding: 2% 6%;
+        font-size: 1.8vh;
         text-align: center;
+    }
+
+    .recursos{
+        width:100%;
+        padding: 0 5vw;
+
+        flex-direction:column;
+        align-items:center;
+        justify-content: center;
+        text-align: center;
+
+        gap: 1.5vh;
+    }
+
+    .recursos-texto{
+        width:fit-content;
+        text-align: left;
+        justify-self: center;
+        line-height:1.5em;
+        font-size: 1.5vh;
         margin-bottom: 4%;
-        padding: 0% 30%;
     }
 
-    .botao{
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        margin-bottom: 30px;
+    .recursos-imagem{
+        width:100%;
+        max-width:40vw;
+        min-width:0;
+        margin-top: 2%;
+        height:auto;
     }
 
-    .comece-aqui{
-        background: #16a34a;
-        color: white;
-        font-size: 1rem;
-        font-weight: 600;
-
-        border: none;
-        border-radius: 8px;
-
-        padding: 14px 28px;
+    img{
+        max-width:100%;
+        display:block;
     }
 
-    .comece-aqui:hover{
-        background: #0d5e2a;
+    .footer{
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+
+        gap:1.8vh;
+        padding:25px 5vw;
+        height: max-content;
     }
-
-    .recursos {
-        display: flex;
-        flex-direction: row;
-        column-gap: 3%;
-        align-items: center;
-        justify-content: center;
-        margin: 5% 2% 3% 2%;
-    }
-
-    .recursos-texto {
-        text-align: start;
-    }
-
-    .recursos-imagem {
-        width: 400px;
-        height: auto;
-    }
-
-    .footer {
-        background: #16a34a;
-        color: #fff;
-        height: 120px;
-        padding: 0 60px;
-        margin-top: 0.5rem;
-
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .logo-footer {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #FFF;
-    }
-
-    .footer a{
-        text-decoration: none;
-        color: rgb(196, 249, 237);
-        font-size: 1rem;
-    }
-
-    .footer a:hover{
-        color: #afacbe;
-        text-decoration: underline;
-    }
-
-    .lista-devs {
-        list-style-type: none;
-    }
-
-
 }
