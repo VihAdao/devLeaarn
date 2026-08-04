@@ -12,89 +12,147 @@ function sanitizarInput(string){
   return string.replace(/[&<>"'/]/g, (caractere) => mapaCaracteres[caractere]);
 }
 
-const formTarefa = document.querySelector('#form-tarefa') || document.querySelector('form');
-const inputTarefa = document.querySelector('#input-tarefa') || document.querySelector('input[type="text"]');
-const containerCards = document.querySelector('#container-cards') || document.body;
+// Função que formata a data lida pelo HTML no formato típico brasileiro de DD MM YYYY
+function formatarDataBR(dataString) {
+    if (!dataString) return "Sem prazo";
+    const [ano, mes, dia] = dataString.split('-');
+    return `${dia}/${mes}/${ano}`;
+}
+
+// Array que gerencia o estado do site
+let bancoDeTarefas = [];
+
+function atualizarResumos() {
+    const total = bancoDeTarefas.length;
+    const concluidas = bancoDeTarefas.filter(t => t.status === "Concluída").length;
+    const pendentes = total - concluidas;
+
+    // Atualiza os elementos;
+    if (document.querySelector('#total-tarefas')) {
+        document.querySelector('#total-tarefas').textContent = total;
+        document.querySelector('#tarefas-pendentes').textContent = pendentes;
+        document.querySelector('#tarefas-concluidas').textContent = concluidas;
+    }
+}
+
+// Mapeamento do formulário
+const formTarefa = document.querySelector('#form-tarefa');
+const inputTarefa = document.querySelector('#input-tarefa');
+const inputDescricao = document.querySelector('#descricao-tarefa');
+const selectPrioridade = document.querySelector('#prioridade-tarefa');
+const inputData = document.querySelector('#data-tarefa');
+const containerCards = document.querySelector('#container-cards');
 
 if(formTarefa) {
+    containerCards.innerHTML = '';
+    atualizarResumos();
+
     formTarefa.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const textoDigitado = inputTarefa.value.trim();
-
-        const selectPrioridade = document.querySelector('#prioridade-tarefa');
+        const tituloDigitado = inputTarefa.value.trim();
+        const descricaoDigitada = inputDescricao.value.trim();
+        const dataSelecionada = inputData ? inputData.value: "";
         const prioridadeSelecionada = selectPrioridade ? selectPrioridade.value : "baixa";
 
 
-        if(textoDigitado === "") {
+        if(tituloDigitado === "") {
             alert("⚠️ Digite o nome da tarefa!");
             return;
         }
 
-        const textoLimpo = sanitizarInput(textoDigitado);
+        const tituloLimpo = sanitizarInput(tituloDigitado);
+        const descricaoLimpa = sanitizarInput(descricaoDigitada)
 
         const novaTarefa = {
             id: Date.now().toString(),
-            titulo: textoLimpo,
+            titulo: tituloLimpo,
+            descricao: descricaoLimpa,
             prioridade: prioridadeSelecionada,
+            data: formatarDataBR(dataSelecionada),
             status: "A Fazer"
         };
 
+        bancoDeTarefas.push(novaTarefa);
         renderizarCardNaTela(novaTarefa);
+        atualizarResumos();
 
-        inputTarefa.value = "";
+        formTarefa.reset();
     });
 }
 
+// Gerador de cards dinâmico
 function renderizarCardNaTela(tarefa) {
-    const divCard = document.createElement('div');
-    divCard.classList.add('card-tarefa');
-    divCard.setAttribute('data-id', tarefa.id);
+    const articleCard = document.createElement('article');
+    articleCard.classList.add('card-tarefa', `urgencia-${tarefa.prioridade}`);
+    articleCard.setAttribute('data-id', tarefa.id);
 
-    let corPrioridade = "green";
-    if (tarefa.prioridade === "media") corPrioridade = "orange";
-    if (tarefa.prioridade === "alta") corPrioridade = "red";
-    divCard.innerHTML = `
-    <div class="conteudo-card">
-        <span class="badge-prioridade"></span>
-        <p class="titulo-tarefa"></p> 
-    </div>
-    <div class="acoes-card">
-        <button class="btn-concluir">✅ Marcar como concluída</button>
-        <button class="btn-deletar">🗑️ Apagar</button>
-    </div>
-    
+    // Cria um card com o mesmo HTML do padrão que o Malick fez;
+    articleCard.innerHTML = `
+    <div class="cabecalho-card">
+            <h3 class="titulo-tarefa"></h3>
+            <span class="badge-prioridade"></span>
+        </div>
+        <p class="descricao-card"></p>
+        <div class="informacoes-card">
+            <span class="prazo-tarefa"></span>
+            <span class="status-tarefa">Pendente</span>
+        </div>
+        <div class="acoes-card">
+            <button class="btn-concluir">Concluir</button>
+            <button class="btn-editar">Editar</button>
+            <button class="btn-deletar">Excluir</button>
+        </div>
     `;
 
     // Proteção contra scripts no input.
-    divCard.querySelector('.titulo-tarefa').textContent = tarefa.titulo;
-    divCard.querySelector('.badge-prioridade').textContent = tarefa.prioridade.toUpperCase();
+    articleCard.querySelector('.titulo-tarefa').textContent = tarefa.titulo;
+    articleCard.querySelector('.descricao-card').textContent = tarefa.descricao || "Sem descrição fornecida.";
 
-    // Adiciona uma classe pra poder colorir a prioridade direto no CSS;
-    divCard.classList.add(`urgencia-${tarefa.prioridade}`);
+    // Mapeamento dinâmico da prioridade
+    const badge = articleCard.querySelector('.badge-prioridade');
+    badge.classList.add(`prioridade-${tarefa.prioridade}`);
+    const prioridadesTexto = { baixa: 'Baixa', media: 'Média', alta: 'Alta' };
+    badge.textContent = prioridadesTexto[tarefa.prioridade];
 
+    // Adiciona o texto de prazo já formatado
+    articleCard.querySelector('.prazo-tarefa').textContent = `Prazo: ${tarefa.data}`;
 
-    const botaoConcluir = divCard.querySelector('.btn-concluir');
+    // Lógica do botão de concluir tarefa
+    const botaoConcluir = articleCard.querySelector('.btn-concluir');
+    const labelStatus = articleCard.querySelector('.status-tarefa');
     botaoConcluir.addEventListener('click', () => {
         if (tarefa.status === "A Fazer") {
             tarefa.status = "Concluída";
-            divCard.classList.add('card-concluido'); // Estilizar no CSS
-            divCard.querySelector('.badge-prioridade').textContent = "CONCLUÍDA";
-        } else {
-            tarefa.status = "A Fazer";
-            divCard.classList.remove('card-concluido');
-            divCard.querySelector('.badge-prioridade').textContent = tarefa.prioridade.toUpperCase();
+            articleCard.classList.add('card-concluido');
+            labelStatus.textContent = "Concluída";
+            labelStatus.classList.add('status-concluido');
+            botaoConcluir.style.display = 'none'
         }
+        atualizarResumos();
         console.log(`Tarefa ${tarefa.id} alterada para: ${tarefa.status}`);
     });
 
-    const botaoDeletar = divCard.querySelector('.btn-deletar');
+    // Botão de deletar tarefa
+    const botaoDeletar = articleCard.querySelector('.btn-deletar');
     botaoDeletar.addEventListener('click', () => {
-        divCard.remove();
+        articleCard.remove();
+        bancoDeTarefas = bancoDeTarefas.filter(t => t.id !== tarefa.id);
+        atualizarResumos();
         console.log(`Tarefa ${tarefa.id} removida localmente.`);
         // Firebase vai aq!!
     });
 
+    // Botão de edição
+    const botaoEditar = articleCard.querySelector('.btn-editar');
+    botaoEditar.addEventListener('click', () => {
+        const novoTitulo = prompt("Edite o título da tarefa:", tarefa.titulo);
+        if (novoTitulo && novoTitulo.trim() !== "") {
+            tarefa.titulo = sanitizarInput(novoTitulo.trim());
+            articleCard.querySelector('.titulo-tarefa').textContent = tarefa.titulo;
+        }
+    });
+
     // Coloca o card dentro do container da página.
-    containerCards.appendChild(divCard);
+    containerCards.appendChild(articleCard);
 }
