@@ -127,7 +127,13 @@ function renderizarCardNaTela(tarefa) {
             articleCard.classList.add('card-concluido');
             labelStatus.textContent = "Concluída";
             labelStatus.classList.add('status-concluido');
-            botaoConcluir.style.display = 'none'
+            botaoConcluir.textContent = "Reabrir"; // Troca o texto do botão
+        } else {
+            tarefa.status = "A Fazer";
+            articleCard.classList.remove('card-concluido'); // Desativa o estilo do CSS dele
+            labelStatus.textContent = "Pendente";
+            labelStatus.classList.remove('status-concluido');
+            botaoConcluir.textContent = "Concluir"; // Volta o texto original do botão
         }
         atualizarResumos();
         console.log(`Tarefa ${tarefa.id} alterada para: ${tarefa.status}`);
@@ -147,10 +153,30 @@ function renderizarCardNaTela(tarefa) {
     const botaoEditar = articleCard.querySelector('.btn-editar');
     botaoEditar.addEventListener('click', () => {
         const novoTitulo = prompt("Edite o título da tarefa:", tarefa.titulo);
-        if (novoTitulo && novoTitulo.trim() !== "") {
-            tarefa.titulo = sanitizarInput(novoTitulo.trim());
-            articleCard.querySelector('.titulo-tarefa').textContent = tarefa.titulo;
+
+        if(novoTitulo === null) return;
+
+        
+        if (novoTitulo.trim() === "") {
+            alert("O título não pode ficar vazio!");
+            return;
         }
+
+        const novaDescricao = prompt("Edite a descrição da tarefa:", tarefa.descricao || "");
+
+        if(novaDescricao === null) return;
+
+        // Aplica as alterações e sanitiza os inputs só p ter certeza..
+        tarefa.titulo = sanitizarInput(novoTitulo.trim());
+        tarefa.descricao = sanitizarInput(novaDescricao.trim());
+
+        // Atualiza os elementos visuais na tela
+        articleCard.querySelector('.titulo-tarefa').textContent = tarefa.titulo;
+        articleCard.querySelector('.descricao-card').textContent = tarefa.descricao || "Sem descrição fornecida.";
+
+        
+        console.log(`Tarefa ${tarefa.id} atualizada com sucesso!`);
+        // O Firebase de atualizar o BD vem aq; 
     });
 
     // Coloca o card dentro do container da página.
