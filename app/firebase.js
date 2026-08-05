@@ -1,6 +1,25 @@
 // Importações via CDN oficial da Google
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+// Importações de Autenticação
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut, 
+  onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+// Importações do Realtime Database
+import { 
+  getDatabase, 
+  ref, 
+  push, 
+  set, 
+  onValue, 
+  remove, 
+  update 
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA67X_XXTlmAviBd1zuq6g7OD-1sbfJYdQ",
@@ -13,5 +32,27 @@ const firebaseConfig = {
   measurementId: "G-W3SMT448EE"
 };
 
+// Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
+
+// Instâncias dos serviços
 export const db = getDatabase(app);
+export const auth = getAuth(app);
+
+// Exporta funções do Auth para usar nos outros arquivos
+export { 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut, 
+  onAuthStateChanged 
+};
+
+// Exporta funções do Database para usar nos outros arquivos
+export { 
+  ref, 
+  push, 
+  set, 
+  onValue, 
+  remove, 
+  update 
+};
