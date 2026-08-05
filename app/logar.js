@@ -27,7 +27,7 @@ logarForm.addEventListener('submit', async function(e) {
         alert("Login deu certo! O UID do usuário é: " + userCredential.user.uid);
 
         // 3. Redireciona para a página principal na raiz
-        //window.location.href = "./principal.html";
+        window.location.href = "./principal.html";
 
     } catch (error) {
         console.error("Erro detalhado do Firebase:", error.code, error.message);

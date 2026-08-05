@@ -7,7 +7,7 @@ import {
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
   signOut, 
-  onAuthStateChanged 
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 // Importações do Realtime Database
@@ -18,7 +18,9 @@ import {
   set, 
   onValue, 
   remove, 
-  update 
+  update,
+  get,
+  child
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -54,5 +56,7 @@ export {
   set, 
   onValue, 
   remove, 
-  update 
+  update,
+  get,
+  child 
 };

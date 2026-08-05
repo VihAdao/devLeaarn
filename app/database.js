@@ -55,6 +55,7 @@ addButon.addEventListener('click', async function(e) {
 
         console.log("Dados salvos no Realtime Database com sucesso!");
         alert("Usuário cadastrado com sucesso!");
+        window.location.href = "./login.html";
 
         // 4. Limpar os campos do formulário
         userNome.value = '';
