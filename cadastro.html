@@ -24,7 +24,7 @@
 
     <div class="container-cadastro"> 
        <div class="cadastro-form">
-            <form method="post" target="_self">
+            <form id="cadastroForm">
                 <label for="userNome">Nome</label><br>
                 <input type="text" id="userNome" name="userNome" placeholder="Digite seu nome" required><br><br><br>
                 <label for="userEmail">Email</label><br>
@@ -35,7 +35,7 @@
                 <input type="password" id="userConfSenha" name="userConfSenha" placeholder="Digite sua senha" required><br>
 
                 <div class="botao">
-                    <button type="submit" class="botao-cadastro">Cadastrar</button>
+                    <button type="button" class="botao-cadastro" id="addButon">Cadastrar</button>
                 </div>
                 
             </form>
@@ -63,6 +63,8 @@
     </footer>
 
     <script type="module" src="cadastro.js"></script>
+    <script type="module" src="app/database.js"></script>
+
 
 </body>
 </html>
