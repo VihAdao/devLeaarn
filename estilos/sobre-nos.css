@@ -1,0 +1,235 @@
+
+/*Reseta o CSS, removendo estilos que o navegador tenha por padrão*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Estilo geral da página*/
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #F5F3FF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000;
+}
+
+/* Header */ 
+.header{
+    background: #9dfbc1;
+    height: 90px;
+    padding: 0 60px;
+    margin-bottom: 0.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.menu{
+    display: flex;
+    gap: 45px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+}
+
+.menu a:hover{
+    color: #2e8b57;
+}
+
+.titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #14532D;
+    text-align: left;
+    margin: 5% 2% 2% 3%;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    padding: 0%;
+    margin: 0% 3%;
+    text-align: justify;
+    justify-content: flex-start;
+    gap: 4px;
+    width: 70%;
+}
+
+.texto-sobreNos {
+    font-weight: 600;
+    text-align: justify;
+    margin: 0.8% 0%;
+}
+
+.desenvolvedores{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    flex-wrap: wrap;
+    margin: 3% 3%;
+    justify-content: center;
+    text-align: center;
+}
+
+.devs-item {
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.devs-item a{
+    text-decoration: underline;
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.devs-item a:hover {
+    color: #14532D;
+}
+
+.devs-foto {
+    width: 200px;
+    height: auto;
+    margin-bottom: 5%;
+}
+
+.footer {
+    background: #16a34a;
+    color: #fff;
+    height: 120px;
+    padding: 0 60px;
+    margin-top: 0.5rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-footer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.footer a{
+    text-decoration: none;
+    color: rgb(196, 249, 237);
+    font-size: 1rem;
+}
+
+.footer a:hover{
+    color: #afacbe;
+    text-decoration: underline;
+}
+
+.lista-devs {
+    list-style-type: none;
+}
+
+@media screen and (max-width: 1023px) {
+    body {
+        text-align: center;
+        min-width: 100%;
+    }
+
+    .header {
+        height: 10vh;
+        padding: 0 15px;
+        justify-content: space-evenly;
+        margin-bottom: 0.7rem;
+        gap: 5vw;
+        width: 100vw;
+    }
+
+    .logo{
+        font-size: 2.5vh;
+        width: 50vw;
+        text-align: left;
+        padding: 0 5px;
+    }
+
+    .menu{
+        display: flex;
+        flex-direction:row;
+        
+        width:100%;
+        justify-content: flex-end;
+        gap:5%;
+        flex-wrap:wrap;
+        padding: 0;
+    }
+
+    .menu a{
+        font-size: 2vh;
+    }
+
+    .titulo {
+        padding: 0 2vw;
+    }
+
+    .texto {
+        width:100%;
+        padding: 0 5vw;
+
+        flex-direction:column;
+        justify-content: center;
+        text-align: center;
+
+        gap: 1.5vh;
+    }
+
+    .texto-sobreNos {
+        width:fit-content;
+        text-align: left;
+        justify-self: center;
+        line-height:1.5em;
+        font-size: 1.5vh;
+        margin-bottom: 4%;
+    }
+
+
+    .subtitulo {  
+        width:100%;
+        padding: 2% 6%;
+        font-size: 1.8vh;
+        text-align: center;
+    }
+
+    img{
+        max-width:100%;
+        display:block;
+        margin-top: 4%;
+    }
+
+    .footer{
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+
+        gap:1.8vh;
+        padding:25px 5vw;
+        height: max-content;
+    }
+}
