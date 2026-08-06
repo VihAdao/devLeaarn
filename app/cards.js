@@ -12,6 +12,8 @@ import {
     onAuthStateChanged 
 } from './firebase.js';
 
+const paginaPrincipal = window.location.href.includes("principal.html");
+
 // Função para sanitizar input contra XSS
 function sanitizarInput(string) {
     const mapaCaracteres = {
@@ -108,11 +110,28 @@ async function carregarTarefasDoUsuario(userId) {
 
         if (snapshot.exists()) {
             const dados = snapshot.val();
+          
+            //Busca a data de hoje para quando estiver na página principal
+            const hoje = obterDataHojeBR();
             // Converte o objeto de IDs em Array
             Object.keys(dados).forEach((key) => {
+                
                 const tarefa = { id: key, ...dados[key] };
+
                 bancoDeTarefas.push(tarefa);
-                renderizarCardNaTela(tarefa);
+
+                //Página inicial: mostra apenas as tarefas do dia de hoje 
+                if (paginaPrincipal) {
+                    if( tarefa.data == hoje && tarefa.status !== "Concluída") {
+                        renderizarCardNaTela(tarefa);
+                    }
+                }
+
+                //Se não estiver na página inical 
+                else {
+                    renderizarCardNaTela(tarefa);
+                }
+                               
             });
         }
 

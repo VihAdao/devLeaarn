@@ -93,38 +93,112 @@ body {
 }
 
 #container-cards {
-    display:grid;
-    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-    gap:25px;
-    margin-top:40px;
-}
-
-/* Resumo das tarefas */
-.resumo-tarefas {
-    margin-bottom: 30px;
-
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
 }
 
-.resumo-card {
-    min-height: 100px;
+/* Card individual */
+.card-tarefa {
     padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
 
     background-color: #FFF;
     border: 1px solid #9DFBC1;
 }
 
-.numero-resumo {
+.cabecalho-card {
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.titulo-tarefa {
     color: #14532D;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+}
+
+.badge-prioridade {
+    height: fit-content;
+    padding: 5px 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+}
+
+.prioridade-alta {
+    background-color: #F8D7DA;
+    color: #842029;
+}
+
+.prioridade-media {
+    background-color: #FFF3CD;
+    color: #664D03;
+}
+
+.prioridade-baixa {
+    background-color: #D1E7DD;
+    color: #0F5132;
+}
+
+.descricao-card {
+    min-height: 48px;
+    margin-bottom: 15px;
+
+    line-height: 1.5;
+}
+
+.informacoes-card {
+    margin-bottom: 18px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+}
+
+.status-tarefa {
+    color: #14532D;
     font-weight: bold;
+}
+
+.status-concluido {
+    color: #16A34A;
+}
+
+.acoes-card {
+    display: flex;
+    gap: 10px;
+}
+
+.acoes-card button {
+    padding: 8px 12px;
+
+    background-color: #F0FDF4;
+    border: 1px solid #16A34A;
+    color: #14532D;
+    cursor: pointer;
+}
+
+.btn-concluir {
+    background-color: #16A34A !important;
+    color: #FFF !important;
+}
+
+.btn-deletar {
+    border-color: #A61B1B !important;
+    color: #A61B1B !important;
+}
+
+.card-concluido {
+    background-color: #F0FDF4;
+}
+
+.card-concluido .titulo-tarefa {
+    text-decoration: line-through;
 }
 
 @media screen and (max-width: 1023px) {

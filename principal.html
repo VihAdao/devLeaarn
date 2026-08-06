@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task-LAB</title>
     <link rel="stylesheet" href="./estilos/principal.css">
-    <script src="cards.js" defer></script>
+    <script type="module" src="./app/cards.js"></script>
+
 </head>
 <body>
     <header class="header">
@@ -27,8 +28,8 @@
             <h1 class="titulo" id="boasVindas">Olá, Carregando...</h1>
             <h3 class="subtitulo">Suas tarefas mais recentes</h3>
 
-            <section id="container-cards">
-
+            <section class="lista-tarefas">
+                <div id="container-cards"></div>
             </section>
         </main>
     </div>
