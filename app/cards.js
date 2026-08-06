@@ -34,15 +34,35 @@ function formatarDataBR(dataString) {
 
 let bancoDeTarefas = [];
 
+//funcao que obtem a data de hoje
+function obterDataHojeBR() { 
+    const hoje = new Date();
+
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    const ano = hoje.getFullYear();
+
+    return `${dia}/${mes}/${ano}`;
+}
+
 function atualizarResumos() {
     const total = bancoDeTarefas.length;
     const concluidas = bancoDeTarefas.filter(t => t.status === "Concluída").length;
     const pendentes = total - concluidas;
+    const dataHoje = obterDataHojeBR();
+    const tarefasHoje = bancoDeTarefas.filter(tarefa => {
+        return (
+            tarefa.data === dataHoje &&
+            tarefa.status !== "Concluída"
+        );
+    }).length;
 
     if (document.querySelector('#total-tarefas')) {
         document.querySelector('#total-tarefas').textContent = total;
         document.querySelector('#tarefas-pendentes').textContent = pendentes;
         document.querySelector('#tarefas-concluidas').textContent = concluidas;
+        document.querySelector('#tarefas-hoje').textContent = tarefasHoje;
+
     }
 }
 
