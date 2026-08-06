@@ -34,31 +34,32 @@
 
             <section class="resumo-tarefas">
                 <div class="card-resumo-tarefas">
-                    <p class="numero-eventos-resumo">4</p>
+                    <p class="numero-eventos-resumo" id="eventos-mes">0</p>
                     <p>Eventos no mês</p>
                 </div>
                 <div class="card-resumo-tarefas">
-                    <p class="numero-eventos-resumo">2</p>
+                    <p class="numero-eventos-resumo" id="eventos-hoje">0</p>
                     <p>Hoje</p>
                 </div>
                 <div class="card-resumo-tarefas">
-                    <p class="numero-eventos-resumo">3</p>    
+                    <p class="numero-eventos-resumo" id="proximos-prazos">0</p>    
                     <p>Próximos prazos</p>
                 </div>
                 <div class="card-resumo-tarefas">
-                    <p class="numero-eventos-resumo">5</p>
+                    <p class="numero-eventos-resumo" id="eventos-concluidos">0</p>
                     <p>Concluídos</p>
                 </div>
             </section>
 
             <section class="calendario-info">
                 <div class="navegacao-calendario">
-                    <button type="button" onclick="">Anterior</button>
-                    <button type="button" onclick="">Próximo</button>
-                    <button id="botao-hoje">Hoje</button>
+                    <button type="button" id="mes-anterior">Anterior</button>
+                    <button type="button" id="mes-proximo">Próximo</button>
+                    <button type="button" id="botao-hoje">Hoje</button>
                 </div>
+
                 <div id="mes-atual">
-                    <p>Agosto de 2026</p>
+                    <p id="titulo-mes"></p>
                 </div>
             </section>
 
@@ -72,212 +73,14 @@
                     <div class="dias-semana"> <p>Sexta</p> </div>
                     <div class="dias-semana"> <p>Sábado</p> </div>
                 </div>
-                <div class="container-calendario"> <!-- Os dias tem que ser colocados com JS e essa div ficar vazia depois -->
-                    <div class="calendario-dias">
-                        <!-- Semana 1 -->
-                        <div class="day other-month">
-                            <span class="day-number">26</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">27</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">28</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">29</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">30</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">31</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">1</span>
-                        </div>
-
-
-                        <!-- Semana 2 -->
-                        <div class="day">
-                            <span class="day-number">2</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">3</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">4</span>
-
-                            <div class="event event-blue">
-                                Alguma tarefa
-                            </div>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">5</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">6</span>
-
-                            <div class="event event-yellow">
-                                Alguma tarefa
-                            </div>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">7</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">8</span>
-                        </div>
-
-
-                        <!-- Semana 3 -->
-                        <div class="day">
-                            <span class="day-number">9</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">10</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">11</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">12</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">13</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">14</span>
-
-                            <div class="event event-green">
-                                Alguma tarefa
-                            </div>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">15</span>
-                        </div>
-
-
-                        <!-- Semana 4 -->
-                        <div class="day">
-                            <span class="day-number">16</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">17</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">18</span>
-
-                            <div class="event event-purple">
-                                Alguma tarefa
-                            </div>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">19</span>
-                        </div>
-
-                        <div class="day today">
-                            <span class="day-number">20</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">21</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">22</span>
-                        </div>
-
-
-                        <!-- Semana 5 -->
-                        <div class="day">
-                            <span class="day-number">23</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">24</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">25</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">26</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">27</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">28</span>
-
-                            <div class="event event-red">
-                                Alguma tarefa
-                            </div>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">29</span>
-                        </div>
-
-
-                        <!-- Semana 6 -->
-                        <div class="day">
-                            <span class="day-number">30</span>
-                        </div>
-
-                        <div class="day">
-                            <span class="day-number">31</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">1</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">2</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">3</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">4</span>
-                        </div>
-
-                        <div class="day other-month">
-                            <span class="day-number">5</span>
-                        </div>
-                    </div>
+                <div class="container-calendario">
+                    <div class="calendario-dias" id="calendario-dias"></div>
                 </div>
             </section>
 
         </main>
 
     </div>
+    <script type="module" src="./app/calendario.js"></script>
 </body>
 </html>
