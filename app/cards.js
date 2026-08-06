@@ -76,6 +76,10 @@ const selectPrioridade = document.querySelector('#prioridade-tarefa');
 const inputData = document.querySelector('#data-tarefa');
 const containerCards = document.querySelector('#container-cards');
 
+const inputBusca = document.querySelector("#buscar-tarefa");
+const filtroStatus = document.querySelector("#filtro-status");
+const filtroPrioridade = document.querySelector("#filtro-prioridade");
+
 // Monitora o estado da autenticação e carrega apenas as tarefas do usuário logado
 onAuthStateChanged(auth, (usuario) => {
     if (usuario) {
@@ -113,6 +117,7 @@ async function carregarTarefasDoUsuario(userId) {
           
             //Busca a data de hoje para quando estiver na página principal
             const hoje = obterDataHojeBR();
+
             // Converte o objeto de IDs em Array
             Object.keys(dados).forEach((key) => {
                 
@@ -126,16 +131,13 @@ async function carregarTarefasDoUsuario(userId) {
                         renderizarCardNaTela(tarefa);
                     }
                 }
-
-                //Se não estiver na página inical 
-                else {
-                    renderizarCardNaTela(tarefa);
-                }
-                               
             });
         }
 
+        //Caso não esteja na página inicial, ele chama a função de filtrar para que ela exiba as tarefas específicas
+        filtrosDeTarefas();
         atualizarResumos();
+
     } catch (erro) {
         console.error("Erro ao carregar tarefas do Firebase:", erro);
     }
@@ -310,4 +312,43 @@ function renderizarCardNaTela(tarefa) {
     });
 
     containerCards.appendChild(articleCard);
+}
+
+//Busca com filtros (por titulo, status e prioridade de cada tarefa)
+function filtrosDeTarefas () {
+
+    if (!containerCards) {
+        return;
+    }
+    
+    //Puxa o valor do forms (tanto da busca quanto do filtro) do HTML
+    const textoBusca = inputBusca.value.toLowerCase().trim(); 
+    const status = filtroStatus.value.trim(); 
+    const prioridade = filtroPrioridade.value.trim(); 
+
+    containerCards.innerHTML = ""; 
+
+    //Filtra as tarefas
+    bancoDeTarefas.filter(tarefa => {
+
+        const tituloIgual = tarefa.titulo.toLowerCase().includes(textoBusca);
+        const statusIgual = status == "" || tarefa.status == status;
+        const prioridadeIgual = prioridade == "" || tarefa.prioridade == prioridade; 
+
+        return(tituloIgual && statusIgual && prioridadeIgual);
+    }
+    ).forEach(tarefa => renderizarCardNaTela(tarefa)); //Exibe cada tarefa daquele usuário de acordo com os filtros aplicados
+}
+
+//Atualiza as variáveis sempre que o filtro mudar
+if (inputBusca) {
+    inputBusca.addEventListener("input", filtrosDeTarefas);
+}
+
+if (filtroStatus) {
+    filtroStatus.addEventListener("change", filtrosDeTarefas);
+}
+
+if (filtroPrioridade) {
+    filtroPrioridade.addEventListener("change", filtrosDeTarefas);
 }
