@@ -23,6 +23,7 @@ import {
   child
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyA67X_XXTlmAviBd1zuq6g7OD-1sbfJYdQ",
   authDomain: "bddlab.firebaseapp.com",
@@ -41,7 +42,7 @@ const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export const auth = getAuth(app);
 
-// Exporta funções do Auth
+// Exporta funções do Auth para usar nos outros arquivos
 export { 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
@@ -49,7 +50,7 @@ export {
   onAuthStateChanged 
 };
 
-// Exporta funções do Database
+// Exporta funções do Database para usar nos outros arquivos
 export { 
   ref, 
   push, 

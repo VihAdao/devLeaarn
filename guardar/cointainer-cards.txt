@@ -1,0 +1,87 @@
+<article class="card-tarefa urgencia-alta">
+
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-tarefa">
+                                Revisar Estruturas de Dados
+                            </h3>
+
+                            <span class="badge-prioridade prioridade-alta">
+                                Alta
+                            </span>
+                        </div>
+
+                        <p class="descricao-card">
+                            Revisar listas, pilhas, filas e árvores.
+                        </p>
+
+                        <div class="informacoes-card">
+                            <span>Prazo: 20/08/2026</span>
+                            <span class="status-tarefa">Pendente</span>
+                        </div>
+
+                        <div class="acoes-card">
+                            <button class="btn-concluir">Concluir</button>
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-deletar">Excluir</button>
+                        </div>
+
+                    </article>
+
+                    <article class="card-tarefa urgencia-media">
+
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-tarefa">
+                                Desenvolver o projeto de Web
+                            </h3>
+
+                            <span class="badge-prioridade prioridade-media">
+                                Média
+                            </span>
+                        </div>
+
+                        <p class="descricao-card">
+                            Terminar as páginas de tarefas e calendário.
+                        </p>
+
+                        <div class="informacoes-card">
+                            <span>Prazo: 22/08/2026</span>
+                            <span class="status-tarefa">Pendente</span>
+                        </div>
+
+                        <div class="acoes-card">
+                            <button class="btn-concluir">Concluir</button>
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-deletar">Excluir</button>
+                        </div>
+
+                    </article>
+
+                    <article class="card-tarefa card-concluido urgencia-baixa">
+
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-tarefa">
+                                Entregar relatório de laboratório
+                            </h3>
+
+                            <span class="badge-prioridade prioridade-baixa">
+                                Baixa
+                            </span>
+                        </div>
+
+                        <p class="descricao-card">
+                            Revisar o texto e enviar o arquivo final.
+                        </p>
+
+                        <div class="informacoes-card">
+                            <span>Prazo: 15/08/2026</span>
+                            <span class="status-tarefa status-concluido">
+                                Concluída
+                            </span>
+                        </div>
+
+                        <div class="acoes-card">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-deletar">Excluir</button>
+                        </div>
+
+                    </article>
