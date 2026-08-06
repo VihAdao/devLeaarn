@@ -84,7 +84,8 @@ body {
 }
 
 .subtitulo {
-    margin-bottom: 35px;
+    margin-bottom: 3%;
+    margin-top: 1.5%;
 
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
@@ -92,10 +93,24 @@ body {
     text-align: center;
 }
 
+.lista-tarefas {
+    display: flex;
+    justify-content: center;
+}
+
 #container-cards {
-    display: grid;
+    /*display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px; */
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 25px;
+    padding: 0% 20%;
+
 }
 
 /* Card individual */
