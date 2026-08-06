@@ -1,0 +1,234 @@
+/* Remove os estilos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #F5F3FF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000;
+}
+
+/* Header */
+.header {
+    height: 90px;
+    padding: 0 60px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #9DFBC1;
+}
+
+.logo {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Área formada pelo menu lateral e pelo conteúdo */
+.dashboard {
+    display: flex;
+    flex: 1;
+}
+
+/* Menu lateral */
+.menu-lateral {
+    width: 200px;
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    background-color: #F0FDF4;
+    font-weight: 500;
+}
+
+.menu-lateral a {
+    padding: 10px;
+
+    color: #000;
+    text-decoration: none;
+}
+
+/* Destaca a página que está aberta OBS: lemnbrar de colocar nas outras paginas tbm */
+.menu-lateral .pagina-atual {
+    background-color: #16A34A;
+    color: #FFF;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    flex: 1;
+    flex-direction: column;
+    padding: 20px 40px 50px 40px;
+}
+
+/* estilizacao dos titulos */
+.titulo {
+    margin: 20px 0 15px 0;
+
+    color: #14532D;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.subtitulo {
+    margin-bottom: 35px;
+
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Resumo das tarefas */
+.resumo-tarefas {
+    margin-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card-resumo-tarefas {
+    min-height: 100px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    background-color: #FFF;
+    border: 1px solid #9DFBC1;
+}
+
+.numero-eventos-resumo {
+    color: #14532D;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Botões e inforações do calendário */
+
+.calendario-info {
+    display: grid;
+    margin-bottom: 20px;
+    grid-auto-flow: column;
+}
+
+.calendario-info p {
+    color: #14532D;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.navegacao-calendario button {
+    background-color: #FFF;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 10px 20px;
+    border: 2px solid #1fcd5f;
+    cursor: pointer;
+}
+
+#botao-hoje {
+    background-color: #14532D;
+    color: #FFF;
+    font-weight: 550;
+}
+
+/* Calendario e Dias */
+.calendario {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-dias-semana {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.dias-semana {
+    background-color: #c9f1db;
+    padding: 10px;
+    border: 1px solid #83f2b5;
+}
+
+.calendario-dias {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(6,74px);
+    background-color: #FFF;
+}   
+
+.day {
+    position: relative;
+    padding: 10px 12px;
+    border-right: 1px solid #c9f1db;
+    border-bottom: 1px solid #c9f1db;
+}
+
+.day-number {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.other-month .day-number {
+    color: #999;
+}
+
+.today {
+    background-color: #edfff4;
+}
+
+.today .day-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+
+    color: white;
+    background-color: #22b65f;
+    border-radius: 50%;
+}
+
+.event {
+    margin-top: 12px;
+    padding: 7px 9px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.event-blue {
+    background-color: #dceeff;
+}
+
+.event-yellow {
+    background-color: #fff2c9;
+}
+
+.event-green {
+    background-color: #d9f5e3;
+}
+
+.event-purple {
+    background-color: #e9ddff;
+}
+
+.event-red {
+    background-color: #ffdede;
+}
